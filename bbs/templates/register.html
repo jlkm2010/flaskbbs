@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <title>善款追踪论坛-注册</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">论坛主页</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/post">发帖</a></li>
+            <li><a href="/login">登录</a></li>
+            <li class="active"><a href="/reg">注册</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <form action="/register" method="post" class="col-lg-8 col-lg-offset-2" style="margin-top: 15px">
+        <div class="form-group">
+            <label for="inputEmail">用户名</label>
+            <input type="text" name="username" id="inputEmail" class="form-control" placeholder="用户名" required="" autofocus="">
+        </div>
+        <div class="form-group">
+            <label id="inputEmail">邮箱</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="用户名" required="" autofocus="">
+        </div>
+        <div class="form-group">
+            <label id="inputPwd">密码</label>
+            <input type="password" name="password" id="inputPwd" class="form-control" placeholder="用户名" required="" autofocus="">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary col-lg-6" type="submit">注册</button>
+            <button class="btn btn-lg btn-primary col-lg-6" type="reset">重置</button>
+        </div>
+    </form>
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/vendor/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
