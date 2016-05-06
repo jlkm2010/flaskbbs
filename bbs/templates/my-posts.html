@@ -30,10 +30,15 @@
             <a class="navbar-brand" href="/">论坛主页</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
                 <li class=""><a href="/post">发帖</a></li>
-                <li class=""><a href="/login">登录</a></li>
-                <li class=""><a href="/reg">注册</a></li>
+                {% if session.logged_in %}
+                    <li><a>欢迎您：{{ session.login_user_nickname }}</a></li>
+                    <li><a href="/login">退出</a></li>
+                {% else %}
+                    <li><a href="/login">登录</a></li>
+                    <li><a href="/reg">注册</a></li>
+                {% endif %}
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -42,12 +47,19 @@
 <div class="container">
 
     <div>
-        <h3>张三</h3>
+        <h3>{{ user.nickname }}</h3>
         <div>
             <ul>
-                <li><a href="/detail">帖子1</a></li>
-                <li><a href="/detail">帖子2</a></li>
-                <li><a href="/detail">帖子3</a></li>
+                {% if posts | length <= 0 %}
+                    <h4>暂无发帖</h4>
+                {% endif %}
+
+                {% for post in posts %}
+                    <li class="row" style="list-style: none;margin-bottom: 5px;">
+                        <a href="/detail?post_id={{ post.id }}">{{ post.title }}</a>
+                        <span style="float: right">{{ post.timestamp | datetimeformat("%Y-%m-%d %H:%M:%S") }}</span>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

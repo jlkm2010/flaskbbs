@@ -29,7 +29,7 @@
           <a class="navbar-brand" href="/">论坛主页</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-right">
             <li><a href="/post">发帖</a></li>
             <li class="active"><a href="/login">登录</a></li>
             <li class=""><a href="/reg">注册</a></li>
@@ -39,10 +39,26 @@
     </nav>
 
     <div class="container">
+
+        {% for message in get_flashed_messages() %}
+          <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+          </div>
+        {% endfor %}
+
+{#    显示登录错误信息#}
+        {% if error %}
+            <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error:</strong> {{ error }}
+          </div>
+        {% endif %}
+
         <form action="/sign" method="post" class="form-signin col-lg-8 col-lg-offset-2" style="margin-top: 15px">
         <h2 class="form-signin-heading">登录</h2>
-        <label for="inputEmail" class="sr-only">用户名</label>
-        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="用户名" required="" autofocus="">
+        <label for="inputEmail" class="sr-only">邮箱</label>
+        <input type="text" name="email" id="inputEmail" class="form-control" placeholder="邮箱" required="" autofocus="">
             <br>
         <label for="inputPassword" class="sr-only">密码</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required="">
