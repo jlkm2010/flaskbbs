@@ -1,6 +1,8 @@
 import sqlite3
 from flask import Flask, g
 from contextlib import closing
+
+from flask.ext.login import LoginManager
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -29,5 +31,8 @@ db = SQLAlchemy(app)
 #         db.close()
 #     g.db.close()
 
+lm = LoginManager()
+lm.init_app(app)
+lm.login_view = 'login'
 
 from bbs import views, userAction, postAction, filters

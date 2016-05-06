@@ -1,6 +1,7 @@
 import json
 
-from bbs import db
+from bbs import db, lm
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -9,6 +10,22 @@ class User(db.Model):
     password = db.Column(db.String(120))
     timestamp = db.Column(db.Integer)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.id)  # python 3
+
+    @lm.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     def __repr__(self):
         return json.dumps({'id':self.id, 'nickname':self.nickname, 'email':self.email})
