@@ -23,8 +23,7 @@ def post_detail():
     replys = models.Reply.query.filter_by(post_id=post_id).all()
     newReplys = []
     for r in replys:
-        user = models.User.query.get(r.user_id)
-        newReplys.append({'reply': r, 'user': user})
+        newReplys.append({'reply': r, 'user': models.User.query.get(r.user_id)})
     return render_template("detail.html", post=post, user=user, replys=newReplys)
 
 
