@@ -11,6 +11,4 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 # configuration
 DATABASE = os.path.join(basedir, 'bbs.db')
 DEBUG = True
-SECRET_KEY = 'development--key'
-USERNAME = 'admin'
-PASSWORD = 'admin'
+SECRET_KEY = 'developmentkkkkey'

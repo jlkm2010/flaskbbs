@@ -8,7 +8,6 @@ from bbs import models
 # db.session.add(u)
 # db.session.commit()
 
-
 # cur = connect_db().execute('select nickname, email, password from user order by id desc')
 # user = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
 # print(user)
